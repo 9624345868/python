@@ -1,0 +1,242 @@
+# Function to get subjects and prerequisites
+def get_subjects_and_prerequisites():
+    """Returns a dictionary containing subjects, their prerequisites, and questions."""
+    return {
+        "Artificial Intelligence": {
+            "Prerequisites": {
+                "Machine Learning Basics": [
+                    {"question": "What is the goal of Machine Learning?",
+                     "options": ["A) Teach machines to think", "B) Extract patterns from data", "C) Build robots", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "Which is a supervised learning algorithm?",
+                     "options": ["A) K-means", "B) Linear Regression", "C) DBSCAN", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "What is overfitting in ML?",
+                     "options": ["A) Poor generalization", "B) Perfect prediction", "C) Poor training accuracy", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is unsupervised learning?",
+                     "options": ["A) Learning with labeled data", "B) Learning without labeled data", "C) Reinforcement learning", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "Which of the following is a clustering algorithm?",
+                     "options": ["A) SVM", "B) Decision Tree", "C) K-means", "D) None of the above"],
+                     "answer": "C"}
+                ],
+                "Neural Networks": [
+                    {"question": "What is a neural network?",
+                     "options": ["A) A machine learning model", "B) A set of neurons", "C) A physical brain structure", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is a perceptron?",
+                     "options": ["A) The simplest neural network unit", "B) A decision tree", "C) A data clustering method", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is backpropagation?",
+                     "options": ["A) An optimization algorithm", "B) A neural network training algorithm", "C) A clustering technique", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "What is the activation function?",
+                     "options": ["A) Converts input to output", "B) Optimizes weights", "C) Normalizes data", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "Which of the following is a deep learning framework?",
+                     "options": ["A) TensorFlow", "B) NumPy", "C) Matplotlib", "D) None of the above"],
+                     "answer": "A"}
+                ],
+                "Deep Learning": [
+                    {"question": "What is Deep Learning?",
+                     "options": ["A) A subset of ML", "B) A type of database", "C) A programming language", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is a convolutional neural network (CNN) used for?",
+                     "options": ["A) Image processing", "B) Natural language processing", "C) Time series analysis", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What does RNN stand for?",
+                     "options": ["A) Recursive Neural Network", "B) Recurrent Neural Network", "C) Random Neural Network", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "What is the main advantage of using GPUs for Deep Learning?",
+                     "options": ["A) Faster computation", "B) Lower cost", "C) Easier programming", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "Which of the following is a common loss function for classification tasks?",
+                     "options": ["A) Mean Squared Error", "B) Cross-Entropy", "C) Hinge Loss", "D) None of the above"],
+                     "answer": "B"}
+                ]
+            }
+        },
+        ".NET": {
+            "Prerequisites": {
+                "CLR": [
+                    {"question": "What does CLR stand for?",
+                     "options": ["A) Common Language Runtime", "B) Common Language Repository", "C) Code Language Runtime", "D) Central Language Runtime"],
+                     "answer": "A"},
+                    {"question": "Which language is supported by CLR?",
+                     "options": ["A) Python", "B) JavaScript", "C) C#", "D) All of the above"],
+                     "answer": "C"},
+                    {"question": "What is the purpose of garbage collection in CLR?",
+                     "options": ["A) Clean UI", "B) Manage memory", "C) Optimize execution speed", "D) Debug code"],
+                     "answer": "B"},
+                    {"question": "What is JIT compilation?",
+                     "options": ["A) Just In Time compilation", "B) Java Interface Translation", "C) Jump Into Threads", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is the role of metadata in CLR?",
+                     "options": ["A) Code execution", "B) Data about code", "C) Debugging", "D) UI enhancement"],
+                     "answer": "B"}
+                ],
+                "ASP.NET": [
+                    {"question": "What is ASP.NET primarily used for?",
+                     "options": ["A) Desktop applications", "B) Web development", "C) Mobile app development", "D) Database management"],
+                     "answer": "B"},
+                    {"question": "Which method starts an ASP.NET application?",
+                     "options": ["A) Execute()", "B) Run()", "C) Main()", "D) Start()"],
+                     "answer": "C"},
+                    {"question": "What is Razor in ASP.NET?",
+                     "options": ["A) A compiler", "B) A markup syntax", "C) A database", "D) An API"],
+                     "answer": "B"},
+                    {"question": "What is MVC in ASP.NET?",
+                     "options": ["A) Model View Controller", "B) Managed Visual Code", "C) Microsoft Virtual Compiler", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is the role of Web API in ASP.NET?",
+                     "options": ["A) Building web pages", "B) Creating RESTful services", "C) Debugging applications", "D) None of the above"],
+                     "answer": "B"}
+                ]
+            }
+        },
+        "Operating System": {
+            "Prerequisites": {
+                "Process Management": [
+                    {"question": "What is a process?",
+                     "options": ["A) A program in execution", "B) A static program", "C) A CPU register", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is the role of a process scheduler?",
+                     "options": ["A) Manage memory", "B) Allocate CPU time", "C) Handle I/O", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "What is a critical section?",
+                     "options": ["A) A portion of shared data", "B) A section of memory", "C) A process state", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is the purpose of semaphores?",
+                     "options": ["A) Process synchronization", "B) Memory management", "C) CPU scheduling", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "Which algorithm is used for deadlock avoidance?",
+                     "options": ["A) Round-robin", "B) Banker's algorithm", "C) FIFO", "D) None of the above"],
+                     "answer": "B"}
+                ],
+                "Memory Management": [
+                    {"question": "What is virtual memory?",
+                     "options": ["A) Secondary storage", "B) Logical memory", "C) Physical memory", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "What is paging?",
+                     "options": ["A) Swapping processes", "B) Dividing memory into fixed-size blocks", "C) Allocating CPU time", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "What is a page fault?",
+                     "options": ["A) Error in CPU", "B) Missing page in memory", "C) I/O failure", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "What is fragmentation?",
+                     "options": ["A) Memory wastage", "B) Process scheduling", "C) CPU idling", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is the role of the MMU?",
+                     "options": ["A) Handles CPU scheduling", "B) Translates logical to physical address", "C) Manages I/O", "D) None of the above"],
+                     "answer": "B"}
+                ],
+                "File Management": [
+                    {"question": "What is a file system?",
+                     "options": ["A) Software for disk management", "B) Method to organize files", "C) Hardware for storage", "D) None of the above"],
+                     "answer": "B"},
+                    {"question": "What is the purpose of an inode?",
+                     "options": ["A) File metadata", "B) File content", "C) File name", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is the role of the directory structure?",
+                     "options": ["A) File organization", "B) File deletion", "C) File transfer", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is the role of journaling in file systems?",
+                     "options": ["A) Tracks changes for recovery", "B) Allocates disk blocks", "C) Defragments disks", "D) None of the above"],
+                     "answer": "A"},
+                    {"question": "What is RAID?",
+                     "options": ["A) Memory management", "B) Data redundancy technology", "C) CPU scheduling", "D) None of the above"],
+                     "answer": "B"}
+                ]
+            }
+        }
+    }
+
+# Function to ask questions for a specific prerequisite
+def ask_questions(prerequisite_name, questions):
+    """Conducts a quiz for the given prerequisite and returns the score."""
+    print(f"\n--- {prerequisite_name} ---")
+    score = 0
+    for i, question in enumerate(questions, 1):
+        print(f"Q{i}: {question['question']}")
+        for option in question['options']:
+            print(option)
+        answer = input("Your answer: ").strip().upper()
+        if answer == question['answer']:
+            score += 1
+    return score
+
+# Means-End Analysis function
+def means_end_analysis(prerequisite_results):
+    """Analyzes the gap between current and desired performance."""
+    print("\n--- Means-End Analysis ---")
+    for prerequisite, score in prerequisite_results.items():
+        gap = 3 - score  # Desired score is 3 for each prerequisite
+        if gap > 0:
+            print(f"{prerequisite}: You need to improve by {gap} points.")
+        else:
+            print(f"{prerequisite}: No gap. Excellent performance.")
+
+# Heuristic Search function
+def heuristic_search(prerequisite_results):
+    """Provides heuristic-based recommendations for improvement."""
+    print("\n--- Heuristic Search Recommendations ---")
+    for prerequisite, score in prerequisite_results.items():
+        if score == 3:
+            recommendation = "Advance to more complex topics related to this prerequisite."
+        elif score == 2:
+            recommendation = "Focus on practical exercises to strengthen understanding."
+        else:
+            recommendation = "Review foundational materials and complete basic exercises."
+        print(f"{prerequisite}: {recommendation}")
+
+# Function to provide recommendations
+def generate_recommendations(subject_name, prerequisite_results):
+    """Generates recommendations based on the results of the quiz."""
+    print("\n--- Prerequisite-wise Recommendations ---")
+    for prerequisite, score in prerequisite_results.items():
+        if score == 3:
+            level = "Excellent"
+            recommendation = "You have mastered this prerequisite. Move on to advanced topics."
+        elif score == 2:
+            level = "Good"
+            recommendation = "Focus on practicing weak areas for improvement."
+        else:
+            level = "Needs Improvement"
+            recommendation = "Revise the prerequisite thoroughly and practice more questions."
+        print(f"{prerequisite}: {score}/3 ({level}) - {recommendation}")
+
+    # Overall recommendation
+    total_score = sum(prerequisite_results.values())
+    max_score = len(prerequisite_results) * 3
+    overall_percentage = (total_score / max_score) * 100
+    print("\n--- Overall Performance ---")
+    print(f"Overall Score: {total_score}/{max_score} ({overall_percentage:.2f}%)")
+    if overall_percentage >= 80:
+        print("Recommendation: Excellent performance! Ready to explore new areas.")
+    elif overall_percentage >= 50:
+        print("Recommendation: Good performance. Focus on weaker prerequisites to improve.")
+    else:
+        print("Recommendation: Needs significant improvement. Revise the fundamentals.")
+
+# Main function to execute the program
+def main():
+    """Main function to execute the quiz and provide recommendations."""
+    subjects = get_subjects_and_prerequisites()
+    print("\nAvailable Subjects:")
+    for i, subject in enumerate(subjects.keys(), 1):
+        print(f"{i}. {subject}")
+
+    # Choose a subject
+    subject_choice = int(input("Select a subject by number: ")) - 1
+    subject_name = list(subjects.keys())[subject_choice]
+    subject_data = subjects[subject_name]
+
+    # Quiz for each prerequisite
+    prerequisite_results = {}
+    for prerequisite_name, questions in subject_data["Prerequisites"].items():
+        score = ask_questions(prerequisite_name, questions)
+        prerequisite_results[prerequisite_name] = score
+
+    # Perform Means-End Analysis
+    means_end_analysis(prerequisite_results)
