@@ -1,0 +1,63 @@
+# dynamic code for bfs
+from collections import deque
+
+def water_jug_bfs(capacity_a, capacity_b, target):
+    """
+    Solves the Water Jug Problem using BFS.
+
+    :param capacity_a: Capacity of Jug A
+    :param capacity_b: Capacity of Jug B
+    :param target: Desired amount of water in Jug A
+    :return: List of steps leading to the solution
+    """
+    def goal(state):
+        return state[0] == target  # We need Jug A to have the target amount
+
+    visited = set()
+    queue = deque([((0, 0), [])])  # (current state, path to reach it)
+    visited.add((0, 0))
+
+    while queue:
+        state, path = queue.popleft()
+        a, b = state
+
+        if goal(state):
+            return path + [state]
+
+        # Generate all possible states
+        next_states = [
+            (capacity_a, b),   # Fill Jug A
+            (a, capacity_b),   # Fill Jug B
+            (0, b),            # Empty Jug A
+            (a, 0),            # Empty Jug B
+        ]
+
+        # Pour A → B
+        pour = min(a, capacity_b - b)
+        next_states.append((a - pour, b + pour))
+
+        # Pour B → A
+        pour = min(b, capacity_a - a)
+        next_states.append((a + pour, b - pour))
+
+        for new_state in next_states:
+            if new_state not in visited:
+                visited.add(new_state)
+                queue.append((new_state, path + [state]))
+
+    return None  # No solution found
+
+# Get user input dynamically
+capacity_a = int(input("Enter capacity of Jug A: "))
+capacity_b = int(input("Enter capacity of Jug B: "))
+target = int(input("Enter target amount for Jug A: "))
+
+# Solve dynamically
+solution = water_jug_bfs(capacity_a, capacity_b, target)
+
+if solution:
+    print("\nPath to fill Jug A to", target, "liters:")
+    for step in solution:
+        print(step)
+else:
+    print("No solution found.")
