@@ -1,0 +1,65 @@
+# Dynamic Water Jug Problem Solver using DFS
+
+def water_jug_dfs(cap_a, cap_b, target):
+    def goal(state):
+        return state[0] == target or state[1] == target  # Either jug can have the target amount
+
+    def dfs(state, visited, path):
+        if goal(state):
+            return path + [state]
+
+        visited.add(state)
+        a, b = state
+        actions = []
+
+        # Generate all possible next states
+
+        # Fill Jug A
+        if a < cap_a and (cap_a, b) not in visited:
+            actions.append((cap_a, b))
+        # Fill Jug B
+        if b < cap_b and (a, cap_b) not in visited:
+            actions.append((a, cap_b))
+        # Pour from A to B
+        if a > 0 and b < cap_b:
+            pour = min(a, cap_b - b)
+            new_state = (a - pour, b + pour)
+            if new_state not in visited:
+                actions.append(new_state)
+        # Pour from B to A
+        if b > 0 and a < cap_a:
+            pour = min(b, cap_a - a)
+            new_state = (a + pour, b - pour)
+            if new_state not in visited:
+                actions.append(new_state)
+        # Empty Jug A
+        if a > 0 and (0, b) not in visited:
+            actions.append((0, b))
+        # Empty Jug B
+        if b > 0 and (a, 0) not in visited:
+            actions.append((a, 0))
+
+        # Explore each possible action using DFS
+        for next_state in actions:
+            if next_state not in visited:
+                result = dfs(next_state, visited, path + [state])
+                if result:
+                    return result
+
+        return None  # No solution found
+
+    # Solve using DFS
+    start_state = (0, 0)  # Both jugs initially empty
+    visited = set()
+    solution = dfs(start_state, visited, [])
+
+    return solution if solution else "No solution found."
+
+# Example: Jug A = 8L, Jug B = 5L, Target = 4L
+cap_a = 8
+cap_b = 5
+target = 4
+
+solution = water_jug_dfs(cap_a, cap_b, target)
+print("Solution path (DFS):")
+print(solution)
