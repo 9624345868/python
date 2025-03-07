@@ -1,0 +1,49 @@
+import difflib  # To find similar words based on sequence matching
+
+# Sample dictionary of correctly spelled words
+dictionary = {"this", "is", "a", "sample", "sentence", "with", "some", "misspelled", "words"}
+
+def spell_check(input_text):
+    corrected_text = ""
+    words = input_text.split()
+    
+    for word in words:
+        # Check if the word is in the dictionary
+        if word_in_dictionary(word):
+            corrected_text += word + " "
+        else:
+            # Word is misspelled, suggest corrections
+            suggestions = suggest_corrections(word)
+            if suggestions:
+                corrected_text += suggestions[0] + " "  # Choose the first suggestion
+            else:
+                corrected_text += word + " "  # No suggestions found, keep the original word
+    
+    return corrected_text.strip()  # Remove any trailing space
+
+def word_in_dictionary(word):
+    # Check if the word exists in the dictionary (case-insensitive check)
+    return word.lower() in dictionary
+
+def suggest_corrections(word):
+    # Generate a list of candidate corrections for the misspelled word
+    candidates = generate_candidates(word)
+    # Rank the candidate corrections based on similarity (using Levenshtein distance)
+    ranked_candidates = rank_candidates(candidates)
+    return ranked_candidates
+
+def generate_candidates(word):
+    # Generate candidate corrections for the misspelled word by finding close matches in the dictionary
+    candidates = difflib.get_close_matches(word, dictionary, n=3, cutoff=0.6)  # Top 3 matches with a cutoff similarity
+    return candidates
+
+def rank_candidates(candidates):
+    # Ranking candidates based on the similarity score
+    # Since we already used `difflib.get_close_matches`, it returns ranked suggestions.
+    return candidates
+
+# Example usage
+input_text = "Thiss iss a samplee sentance withh somee mispeled wordds."
+print("Incorrect text:", input_text)
+corrected_text = spell_check(input_text)
+print("Corrected text:", corrected_text)
