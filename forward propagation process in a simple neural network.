@@ -1,0 +1,79 @@
+import math
+import random
+
+# Define the network structure
+network_structure = {
+    "input_layer": 3,  # 3 input neurons
+    "hidden_layer": 5,  # 5 hidden neurons
+    "output_layer": 2   # 2 output neurons
+}
+
+# Define connections with random weights for more variation
+connections = [
+    ("input_layer", "hidden_layer", 1, 1, random.uniform(-1, 1)),
+    ("input_layer", "hidden_layer", 2, 1, random.uniform(-1, 1)),
+    ("input_layer", "hidden_layer", 3, 1, random.uniform(-1, 1)),
+    ("hidden_layer", "output_layer", 1, 1, random.uniform(-1, 1)),
+    ("hidden_layer", "output_layer", 2, 1, random.uniform(-1, 1)),
+    ("hidden_layer", "output_layer", 3, 2, random.uniform(-1, 1)),
+    ("hidden_layer", "output_layer", 4, 2, random.uniform(-1, 1)),
+    ("hidden_layer", "output_layer", 5, 2, random.uniform(-1, 1)),
+]
+
+# Sigmoid activation function
+def sigmoid(x):
+    return 1 / (1 + math.exp(-x))
+
+# Forward propagation for input layer (no computation, just passing inputs)
+def forward_propagate(layer, inputs):
+    print(f"Forward propagating through {layer} with inputs: {inputs}")
+
+    if layer == "input_layer":
+        return inputs  # Input layer directly passes the inputs
+
+    outputs = []
+    if layer == "hidden_layer":
+        for i in range(1, network_structure[layer] + 1):
+            output = neuron_output(layer, i, inputs)
+            print(f"Hidden layer neuron {i} output: {output}")
+            outputs.append(output)
+
+    if layer == "output_layer":
+        for i in range(1, network_structure[layer] + 1):
+            output = neuron_output(layer, i, inputs)
+            print(f"Output layer neuron {i} output: {output}")
+            outputs.append(output)
+
+    return outputs
+
+# Calculate the output of a specific neuron
+def neuron_output(layer, neuron_index, inputs):
+    weighted_inputs = []
+
+    # Find all connections for this neuron
+    for connection in connections:
+        from_layer, to_layer, from_neuron, to_neuron, weight = connection
+        if to_layer == layer and to_neuron == neuron_index:
+            # Find the corresponding input from the previous layer
+            input_value = inputs[from_neuron - 1]  # 0-based indexing in Python
+            weighted_inputs.append(weight * input_value)
+
+    # Sum the weighted inputs and apply the activation function (sigmoid)
+    sum_inputs = sum(weighted_inputs)
+    print(f"Neuron {neuron_index} in layer {layer} - Weighted sum: {sum_inputs}")
+    return sigmoid(sum_inputs)
+
+# Run the network (forward propagation through all layers)
+def run_network(inputs):
+    print(f"Running network with inputs: {inputs}")
+    
+    # Forward propagate through the layers
+    hidden_outputs = forward_propagate("hidden_layer", inputs)
+    output = forward_propagate("output_layer", hidden_outputs)
+
+    return output
+
+# Example usage
+input_data = [0.1, 0.4, 0.6]
+output_data = run_network(input_data)
+print("Output after forward propagation:", output_data)
