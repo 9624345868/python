@@ -1,0 +1,42 @@
+class BankAccount:
+    def __init__(self, account_holder, balance):
+        self.account_holder = account_holder  # Public attribute
+        self.__balance = balance  # Private attribute (Encapsulation)
+
+    def deposit(self, amount):
+        """Method to add money to the account"""
+        if amount > 0:
+            self.__balance += amount
+            print(f"₹{amount} deposited. New Balance: ₹{self.__balance}")
+        else:
+            print("Invalid deposit amount!")
+
+    def withdraw(self, amount):
+        """Method to withdraw money from the account"""
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            print(f"₹{amount} withdrawn. Remaining Balance: ₹{self.__balance}")
+        else:
+            print("Insufficient balance or invalid amount!")
+
+    def get_balance(self):
+        """Method to check balance (Encapsulated access)"""
+        return f"Current Balance: ₹{self.__balance}"
+
+
+# Using the Encapsulation Concept
+account = BankAccount("Sujal", 5000)
+
+# Accessing public data
+print(account.account_holder)  # Allowed
+
+# Trying to access private data directly (Will cause an error)
+# print(account.__balance)  # AttributeError
+
+# Using methods to access and modify private data
+account.deposit(2000)
+account.withdraw(1500)
+print(account.get_balance())
+
+# Accessing private variable using name mangling
+print(account._BankAccount__balance)  # Not recommended but possible
